@@ -1,7 +1,9 @@
 package pl.atena.edu.akdaemia6;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
@@ -35,7 +37,7 @@ public class Kolekcje {
 	}
 
 	private static void listaFilter() {
-				
+
 		List<String> list = new ArrayList<>();
 		list.add("Staszek");
 		list.add("Andrzej");
@@ -52,14 +54,13 @@ public class Kolekcje {
 		});
 		System.out.println();
 		printf(result);
-		
 
 		// Nowa instancja przy pomocy strumienia
 		List<String> result2 = list.stream().filter(item -> "A".equals(item.substring(0, 1).toUpperCase()))
 				.collect(Collectors.toList());
 		System.out.println();
 		printf(result2);
-		
+
 		// usuwam z tej listy
 		list.removeIf(item -> "A".equals(item.substring(0, 1).toUpperCase()));
 
@@ -69,7 +70,19 @@ public class Kolekcje {
 	}
 
 	public static void main(String[] args) {
-		listaFilter();
+		listaSort();
+
+		String[] test = { "Edek", "Kredek" };
+		List<String> lista = Arrays.asList(test);
+		//lista.add("Tadek");
+
+		Collections.singletonList("test");
+
+		Collections.emptyMap();
+
+		Collections.unmodifiableList(lista);
+
+		Collections.checkedList(new ArrayList<String>(), String.class);
 
 	}
 

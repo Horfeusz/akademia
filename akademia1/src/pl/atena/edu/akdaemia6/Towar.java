@@ -18,6 +18,12 @@ public enum Towar {
 		public void gnije() {
 			System.out.println("Gnijąca kapusta to kiszona kapusta");
 		}
+	},
+
+	MARCHEW(3) {
+		public void gnije() {
+			System.out.println("Gnijąca jestem czarna");
+		}
 	};
 
 	private int code;
