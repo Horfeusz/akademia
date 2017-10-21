@@ -3,10 +3,8 @@
  */
 package pl.atena.edu.akdaemia1;
 
-import java.util.Random;
-
 /**
- * Mój pierwszy program
+ * Mï¿½j pierwszy program
  * 
  * @author michalh
  *
@@ -17,8 +15,8 @@ public class WitajSwiecie {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(Samochod.AUDI);
-		System.out.println(Samochod.FIAT);
+		System.out.println(MarkaSamochodu.AUDI);
+		System.out.println(MarkaSamochodu.FIAT);
 	}
 
 }

@@ -1,6 +1,6 @@
 package pl.atena.edu.akdaemia1;
 
-public enum Samochod {
+public enum MarkaSamochodu {
 	
 	AUDI,
 	
