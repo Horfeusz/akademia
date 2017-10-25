@@ -3,6 +3,12 @@ package pl.edu.atena.sklep;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Proste testowanie sklepu
+ * 
+ * @author michalh
+ *
+ */
 public class SklepTest {
 
 	public static void main(String[] argc) {

@@ -3,12 +3,26 @@ package pl.edu.atena.sklep;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Sklep Żabka
+ * 
+ * @author michalh
+ *
+ */
 public class Zabka extends Sklep {
 
+	/**
+	 * Konstruktor
+	 */
 	public Zabka() {
 		super("ŻABKA");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pl.edu.atena.sklep.Sklep#promocja(pl.edu.atena.sklep.Towar)
+	 */
 	@Override
 	protected Towar promocja(Towar towar) {
 		switch (towar.rodzaj()) {
@@ -20,9 +34,14 @@ public class Zabka extends Sklep {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pl.edu.atena.sklep.Sklep#cenaBazowa(pl.edu.atena.sklep.RodzajTowaru)
+	 */
 	@Override
 	protected BigDecimal cenaBazowa(RodzajTowaru rodzajTowaru) {
-		// TODO Auto-generated method stub
+		// FIXME - zaimplementować
 		return null;
 	}
 

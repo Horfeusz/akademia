@@ -2,10 +2,18 @@ package pl.edu.atena.sklep;
 
 import java.math.BigDecimal;
 
+/**
+ * Bazowa klasa dla towarow
+ * 
+ * @author michalh
+ *
+ */
 public abstract class BaseTowar implements Towar {
 
+	/** Cen towaru */
 	private BigDecimal cena;
 
+	/** Rodzaj towaru */
 	private RodzajTowaru rodzajTowaru;
 
 	public BaseTowar(RodzajTowaru rodzajTowaru) {
@@ -39,6 +47,11 @@ public abstract class BaseTowar implements Towar {
 
 	@Override
 	public String toString() {
-		return getRodzajTowaru().name();
+		if (getRodzajTowaru() != null) {
+			return getRodzajTowaru().name();
+		} else {
+			return String.format("BaseTowar [cena=%s, rodzajTowaru=%s]", cena, rodzajTowaru);
+		}
 	}
+
 }

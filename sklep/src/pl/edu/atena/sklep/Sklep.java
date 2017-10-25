@@ -5,20 +5,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Abstrakcyjna klasa do reprezenatcji konkretnego sklepu
+ * 
+ * @author michalh
+ *
+ */
 public abstract class Sklep {
 
+	/** Nazwa sklepu */
 	private String nazwa;
 
-	List<PozycjaMagazyn> magazyn = new ArrayList<>();
+	/** Magazyn */
+	private List<PozycjaMagazyn> magazyn = new ArrayList<>();
 
 	public Sklep(String nazwa) {
 		this.nazwa = nazwa;
 	}
 
 	/**
-	 * Metoda wyszukuje piwo w magazynie
+	 * Metoda wyszukuje towar w magazynie
 	 * 
-	 * @return
+	 * @param rodzajTowaru
+	 *            rodzaj poszukiwanego towaru
+	 * @return pozycja magazynu
 	 */
 	private PozycjaMagazyn szukajWMagazynie(RodzajTowaru rodzajTowaru) {
 		for (PozycjaMagazyn pozycjaMagazyn : magazyn) {
@@ -29,8 +39,15 @@ public abstract class Sklep {
 		return null;
 	}
 
+	/**
+	 * Metoda pobierająca cene bazową dla konkretnej instancji sklepu
+	 * 
+	 * @param rodzajTowaru
+	 *            rodzajTowaru {@link RodzajTowaru}
+	 * @return cena bazowa dla towaru
+	 */
 	protected abstract BigDecimal cenaBazowa(RodzajTowaru rodzajTowaru);
-	
+
 	/**
 	 * Metoda dodaje piwo do magazynu
 	 */
@@ -41,7 +58,7 @@ public abstract class Sklep {
 			Towar towar = null;
 			switch (rodzajTowaru) {
 			case PIWO:
-				//towar = new Piwo(BigDecimal.valueOf(3.67));
+				// towar = new Piwo(BigDecimal.valueOf(3.67));
 				towar = new Piwo(cenaBazowa(rodzajTowaru));
 				break;
 			case FAJKI:
@@ -68,13 +85,22 @@ public abstract class Sklep {
 	}
 
 	/**
+	 * Operacja dostawy towaru do sklepu
+	 * 
 	 * @param towary
+	 *            lista towarów
 	 */
 	public void dostawa(List<Towar> towary) {
 		Objects.nonNull(towary);
 		towary.forEach(t -> dodaj(t.rodzaj()));
 	}
 
+	/**
+	 * Metoda odpowiedzialna za sprzedaż
+	 * 
+	 * @param rodzajTowaru
+	 * @param ilosc
+	 */
 	public void sprzedaz(RodzajTowaru rodzajTowaru, int ilosc) {
 		PozycjaMagazyn pozycja = szukajWMagazynie(rodzajTowaru);
 		if (Objects.isNull(pozycja)) {
@@ -84,6 +110,8 @@ public abstract class Sklep {
 			System.out.println("Nie mam tyle " + pozycja.getTowar() + " na sklepie");
 			return;
 		}
+
+		// FIXME - dokończyć ...
 
 		// Uruchamiam promocje
 		Towar towar = promocja(pozycja.getTowar());
@@ -96,7 +124,7 @@ public abstract class Sklep {
 	 * Metoda będzie obninżac cene towaru
 	 * 
 	 * @param towar
-	 * @return
+	 * @return zwraca nową instancję towaru z zmodyfikowaną ceną
 	 */
 	protected abstract Towar promocja(Towar towar);
 
