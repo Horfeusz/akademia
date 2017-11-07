@@ -52,8 +52,18 @@ public class Biedronka extends Sklep {
 	 */
 	@Override
 	protected BigDecimal cenaBazowa(RodzajTowaru rodzajTowaru) {
-		// FIXME - zaimplementować
-		return null;
+		switch (rodzajTowaru) {
+		case PIWO:
+			return BigDecimal.valueOf(3.96);
+		case POMARANCZA:
+			return BigDecimal.valueOf(1.50);
+		case FAJKI:
+			return BigDecimal.valueOf(13.3);
+		case MASLO:
+			return BigDecimal.valueOf(6.50);
+		default:
+			return BigDecimal.ZERO;
+		}
 	}
 
 }
