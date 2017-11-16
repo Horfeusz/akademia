@@ -1,4 +1,4 @@
-package pl.atena.edu.akdaemia4;
+package pl.atena.edu.lamda;
 
 public class Eee {
 

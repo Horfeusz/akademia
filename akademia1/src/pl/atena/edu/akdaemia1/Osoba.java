@@ -22,7 +22,7 @@ public class Osoba {
 		this.wiek = wiek;
 	}
 
-	private Osoba(String imie) {
+	public Osoba(String imie) {
 		this();
 		this.imie = imie;
 	}

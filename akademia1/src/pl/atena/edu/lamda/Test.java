@@ -1,4 +1,4 @@
-package pl.atena.edu.akdaemia4;
+package pl.atena.edu.lamda;
 
 import java.util.function.Consumer;
 
