@@ -1,4 +1,4 @@
-package pl.atena.edu.lamda;
+package pl.atena.edu.lambda;
 
 import java.util.Arrays;
 import java.util.List;

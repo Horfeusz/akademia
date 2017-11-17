@@ -32,6 +32,11 @@ public class Osoba {
 		this.wzrost = wzrost;
 	}
 
+	public Osoba(String imie, String nazwisko) {
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+	}
+
 	public Osoba(String imie, String nazwisko, int wiek, int wzrost) {
 		this(wiek, wzrost);
 		this.imie = imie;

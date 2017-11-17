@@ -1,4 +1,4 @@
-package pl.atena.edu.akdaemia6;
+package pl.atena.edu.kolekcje;
 
 import java.util.EnumMap;
 import java.util.EnumSet;

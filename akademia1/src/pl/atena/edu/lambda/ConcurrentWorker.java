@@ -1,4 +1,4 @@
-package pl.atena.edu.lamda;
+package pl.atena.edu.lambda;
 
 public class ConcurrentWorker extends Worker {
 	

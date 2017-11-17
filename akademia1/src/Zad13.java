@@ -1,5 +1,9 @@
-import java.util.Arrays;
-
+/**
+ * Zadanie przezentuje możliwości pętli for
+ * 
+ * @author michalh
+ *
+ */
 public class Zad13 {
 
 	public static void main(String[] args) {
@@ -8,9 +12,6 @@ public class Zad13 {
 			tab[i] = liczba;
 			System.out.printf("%4d", tab[i]);
 		}
-		
-		
-
 	}
 
 }

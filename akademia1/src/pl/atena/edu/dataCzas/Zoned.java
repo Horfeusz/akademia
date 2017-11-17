@@ -19,7 +19,9 @@ public class Zoned {
 		ZonedDateTime terazAus = instant.atZone(ZoneId.of("Australia/Sydney"));
 
 		System.out.println("Nasz: " + zdt);
+		System.out.println();
 		System.out.println("Usa: " + terazUsa);
+		System.out.println();
 		System.out.println("Australia: " + terazAus);
 
 	}
