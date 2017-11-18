@@ -1,5 +1,9 @@
 package pl.atena.edu.akdaemia1;
 
+import pl.atena.edu.adnotacje.Log;
+import pl.atena.edu.adnotacje.LogSource;
+
+@Log(messages = "Loguje sobie: ", type = LogSource.CONSOLA)
 public class Osoba {
 
 	public static final int PELNOLETNOSC = 18;
