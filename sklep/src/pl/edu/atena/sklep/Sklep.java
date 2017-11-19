@@ -1,9 +1,11 @@
 package pl.edu.atena.sklep;
 
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -97,13 +99,34 @@ public abstract class Sklep {
 		towary.forEach(t -> dodaj(t.rodzaj()));
 	}
 
+	private void sprawdzWiek(Osoba osoba, RodzajTowaru rodzajTowaru) {
+		Objects.requireNonNull(osoba);
+		Objects.requireNonNull(rodzajTowaru);
+
+		try {
+			Field field = rodzajTowaru.getClass().getField(rodzajTowaru.name());
+			SprawdzWiek sw = field.getAnnotation(SprawdzWiek.class);
+			if (sw == null) {
+				return;
+			}
+			if (osoba.getWiek() < sw.wiek()) {
+				throw new IllegalArgumentException("Koleżka ma mniej niż wymagane: " + sw.wiek());
+			}
+		} catch (SecurityException | NoSuchFieldException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	/**
 	 * Metoda odpowiedzialna za sprzedaż
 	 * 
 	 * @param rodzajTowaru
 	 * @param ilosc
 	 */
-	public void sprzedaz(RodzajTowaru rodzajTowaru, int ilosc) {
+	public void sprzedaz(Osoba osoba, RodzajTowaru rodzajTowaru, int ilosc) {
+		sprawdzWiek(osoba, rodzajTowaru);
+
 		PozycjaMagazyn pozycja = szukajWMagazynie(rodzajTowaru);
 		if (Objects.isNull(pozycja)) {
 			return;

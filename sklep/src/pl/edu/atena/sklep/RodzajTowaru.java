@@ -8,8 +8,10 @@ package pl.edu.atena.sklep;
  */
 public enum RodzajTowaru {
 
+	@SprawdzWiek(wiek = 16)
 	PIWO,
 
+	@SprawdzWiek
 	FAJKI,
 
 	POMARANCZA,

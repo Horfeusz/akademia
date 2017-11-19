@@ -21,6 +21,7 @@ public class LocalDateTest2 {
 		System.out.println(period.getDays());
 		System.out.println(period.getMonths());
 		System.out.println(period.getYears());
+		System.out.println(period);
 
 		// Lepsze wydae się metoda until
 		long dni = ostatnieUrodziny.until(teraz, ChronoUnit.DAYS);

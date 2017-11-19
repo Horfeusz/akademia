@@ -31,16 +31,16 @@ public class SklepTest {
 		zabka.dostawa(towary);
 		biedronka.dostawa(towary);
 
-		zabka.sprzedaz(RodzajTowaru.PIWO, 1);
-		biedronka.sprzedaz(RodzajTowaru.PIWO, 1);
+		zabka.sprzedaz(Osoba.instance(15), RodzajTowaru.PIWO, 1);
+		biedronka.sprzedaz(Osoba.instance(19), RodzajTowaru.PIWO, 1);
 		System.out.println();
 
-		zabka.sprzedaz(RodzajTowaru.POMARANCZA, 1);
-		biedronka.sprzedaz(RodzajTowaru.POMARANCZA, 1);
+		zabka.sprzedaz(Osoba.instance(19), RodzajTowaru.POMARANCZA, 1);
+		biedronka.sprzedaz(Osoba.instance(19), RodzajTowaru.POMARANCZA, 1);
 		System.out.println();
 
-		zabka.sprzedaz(RodzajTowaru.MLEKO, 1);
-		biedronka.sprzedaz(RodzajTowaru.MLEKO, 1);
+		zabka.sprzedaz(Osoba.instance(19), RodzajTowaru.MLEKO, 1);
+		biedronka.sprzedaz(Osoba.instance(19), RodzajTowaru.MLEKO, 1);
 
 	}
 
