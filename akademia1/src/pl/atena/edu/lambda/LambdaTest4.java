@@ -21,6 +21,9 @@ public class LambdaTest4 {
 			System.out.println(sb.toString());
 		};
 
+		Consumer<Osoba> dodajJedenRok = item -> item.dodajLat(1);
+		
+		
 		List<Osoba> osoby = new ArrayList<>();
 		osoby.add(new Osoba("Jan", "Kowalski", 12, 140));
 		osoby.add(new Osoba("Henryk", "Załoga", 56, 190));
@@ -29,12 +32,19 @@ public class LambdaTest4 {
 
 		zadanie(osoby, wyswietl);
 
-		zadanie(osoby, item -> item.dodajLat(1));
+		zadanie(osoby, dodajJedenRok);
+
+		System.out.println();
+
+		zadanie(osoby, wyswietl);
+		
+		zadanie(osoby, dodajJedenRok);
 
 		System.out.println();
 
 		zadanie(osoby, wyswietl);
 
+		
 	}
 
 }

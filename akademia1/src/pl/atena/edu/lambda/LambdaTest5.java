@@ -13,17 +13,17 @@ public class LambdaTest5 {
 		MyFunctionlInterface mysl = (m) -> System.out.println("Tak pomyślałem: " + m);
 		mysl.fire("Kiedy będzie obiad");
 		System.out.println();
-		
+
 		mysl = (m) -> {
 			int year = LocalDate.now().getYear();
-			LocalDate dp = LocalDate.of(year, 1, 1).plusDays(256);
+			LocalDate dp = LocalDate.of(year + 1, 1, 1).plusDays(256);
 			DateTimeFormatter formatterD = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
-			String formatted = formatterD.format(dp);			
-			
+			String formatted = formatterD.format(dp);
+
 			StringBuilder sb = new StringBuilder();
 			sb.append("Dzień programisty: ").append(formatted).append("\n").append(m);
 			System.out.println(sb.toString());
-		};				
+		};
 		mysl.fire("To chyba będzie wspaniały dzień !!");
 
 	}

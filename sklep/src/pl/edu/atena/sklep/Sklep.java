@@ -1,9 +1,12 @@
 package pl.edu.atena.sklep;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.UnaryOperator;
 
 /**
  * Abstrakcyjna klasa do reprezenatcji konkretnego sklepu
@@ -58,20 +61,19 @@ public abstract class Sklep {
 			Towar towar = null;
 			switch (rodzajTowaru) {
 			case PIWO:
-				// towar = new Piwo(BigDecimal.valueOf(3.67));
 				towar = new Piwo(cenaBazowa(rodzajTowaru));
 				break;
 			case FAJKI:
-				towar = new Fajki(BigDecimal.valueOf(14.50));
+				towar = new Fajki(cenaBazowa(rodzajTowaru));
 				break;
 			case MLEKO:
-				towar = new Mleko(BigDecimal.valueOf(2.50));
+				towar = new Mleko(cenaBazowa(rodzajTowaru));
 				break;
 			case POMARANCZA:
-				towar = new Pomarancza(BigDecimal.valueOf(5.50));
+				towar = new Pomarancza(cenaBazowa(rodzajTowaru));
 				break;
 			case MASLO:
-				towar = new Maslo(BigDecimal.valueOf(6.0));
+				towar = new Maslo(cenaBazowa(rodzajTowaru));
 				break;
 			default:
 				break;
@@ -118,6 +120,29 @@ public abstract class Sklep {
 
 		System.out.println(nazwa + " - Cena " + towar + " przed promocją: " + pozycja.getTowar().cena());
 		System.out.println(nazwa + " - Cena " + towar + " po promocji: " + towar.cena());
+	}
+
+	/**
+	 * Metoda modyfikująca cene bazową
+	 * 
+	 * @param cenaBazowa
+	 * @return
+	 */
+	protected UnaryOperator<BigDecimal> modyfikator() {
+		int month = LocalDate.now().getMonthValue();
+		if (month % 2 == 0) {
+			return item -> {
+				Objects.requireNonNull(item, "Nie podano ceny do zmodyfikowania");
+				return item.multiply(BigDecimal.valueOf(0.9)).setScale(2, RoundingMode.HALF_UP);
+			};
+		} else {
+			return item -> {
+				Objects.requireNonNull(item, "Nie podano ceny do zmodyfikowania");
+				BigDecimal nowaCena = item.multiply(BigDecimal.valueOf(1.05)).setScale(2, RoundingMode.HALF_UP);
+				System.out.println("Modyfikator z:" + item + " na:" + nowaCena);
+				return nowaCena;
+			};
+		}
 	}
 
 	/**

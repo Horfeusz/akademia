@@ -18,12 +18,12 @@ public class LambdaTest7 {
 		LambdaTest7 l7 = new LambdaTest7();
 		l7.message("Komunikat", 5);
 
-		// for (int i = 0; i < 10; i++) {
-		// new Thread(() -> System.out.println(i)).start();
-		// }
+		//for (final Integer i = 0; i < 10; i++) {
+		 //new Thread(() -> System.out.println(i)).start();
+		 //}
 
 		List<String> lista = Arrays.asList("Krystian", "Anita");
-		for (String element : lista) {
+		for (final String element : lista) {
 			new Thread(() -> System.out.println(element)).start();
 		}
 

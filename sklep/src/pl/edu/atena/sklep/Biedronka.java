@@ -61,6 +61,8 @@ public class Biedronka extends Sklep {
 			return BigDecimal.valueOf(13.3);
 		case MASLO:
 			return BigDecimal.valueOf(6.50);
+		case MLEKO:
+			return BigDecimal.valueOf(1.75);
 		default:
 			return BigDecimal.ZERO;
 		}
