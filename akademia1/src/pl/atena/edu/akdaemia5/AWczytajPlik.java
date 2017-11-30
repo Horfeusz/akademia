@@ -3,6 +3,7 @@ package pl.atena.edu.akdaemia5;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class AWczytajPlik {
@@ -16,6 +17,7 @@ public abstract class AWczytajPlik {
 	 */
 	public void wczytajPlik(String source) {
 		try {
+			logger.setLevel(Level.ALL);
 			File file = new File(source);
 			logger.info("Wczytano: " + source + "\n");
 
@@ -27,6 +29,7 @@ public abstract class AWczytajPlik {
 			sc.close();
 			logger.info("Zakończono przetwarzanie: " + source + "\n");
 		} catch (FileNotFoundException e) {
+			logger.severe(e.getLocalizedMessage());
 			logger.throwing("AWczytajPlik", "wczytajPlik", e);
 		}
 	}
