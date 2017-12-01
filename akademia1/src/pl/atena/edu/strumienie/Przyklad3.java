@@ -15,7 +15,7 @@ public class Przyklad3 {
 	}
 
 	public static void filter(Przyklad1 p) {
-		Stream<String> s = p.getSlowa().stream().filter(item -> item.equalsIgnoreCase("java"));
+		Stream<String> s = p.getL().stream().filter(item -> item.equalsIgnoreCase("java"));
 		wyswietl(s);
 	}
 
@@ -27,16 +27,16 @@ public class Przyklad3 {
 	}
 
 	public static void map(Przyklad1 p) {
-		Stream<String> s1 = p.getSlowa().stream().map(String::toUpperCase);
+		Stream<String> s1 = p.getL().stream().map(String::toUpperCase);
 		wyswietl(s1);
 
-		Stream<String> s2 = p.getSlowa().stream().map(item -> item.length() > 3 ? item.substring(0, 3) : item);
+		Stream<String> s2 = p.getL().stream().map(item -> item.length() > 3 ? item.substring(0, 3) : item);
 		wyswietl(s2);
 
-		Stream<Stream<String>> s3 = p.getSlowa().stream().map(w -> litery(w));
+		Stream<Stream<String>> s3 = p.getL().stream().map(w -> litery(w));
 		wyswietl(s3);
 
-		Stream<String> s4 = p.getSlowa().stream().flatMap(w -> litery(w));
+		Stream<String> s4 = p.getL().stream().flatMap(w -> litery(w));
 		wyswietl(s4);
 
 	}

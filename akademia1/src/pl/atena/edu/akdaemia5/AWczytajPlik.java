@@ -16,8 +16,17 @@ public abstract class AWczytajPlik {
 	 * @param source
 	 */
 	public void wczytajPlik(String source) {
+		wczytajPlik(source, Level.ALL);
+	}
+
+	/**
+	 * Metoda odczytująca dane z pliku
+	 * 
+	 * @param source
+	 */
+	public void wczytajPlik(String source, Level level) {
 		try {
-			logger.setLevel(Level.ALL);
+			logger.setLevel(level);
 			File file = new File(source);
 			logger.info("Wczytano: " + source + "\n");
 

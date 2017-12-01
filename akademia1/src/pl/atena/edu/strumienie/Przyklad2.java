@@ -19,7 +19,7 @@ public class Przyklad2 {
 	 */
 	public static void zTablicy(Przyklad1 p) {
 
-		String[] slowa = (String[]) p.getSlowa().toArray();
+		String[] slowa = (String[]) p.getL().toArray();
 		Stream<String> stream = Stream.of(slowa);
 		// wyswietl(stream);
 		wyswietl(stream.filter(item -> item.length() > 12));

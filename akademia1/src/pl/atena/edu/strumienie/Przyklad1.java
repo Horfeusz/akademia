@@ -2,6 +2,8 @@ package pl.atena.edu.strumienie;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.stream.Stream;
 
 import pl.atena.edu.akdaemia5.AWczytajPlik;
 
@@ -10,7 +12,7 @@ public class Przyklad1 extends AWczytajPlik {
 	private StringBuffer sb = new StringBuffer();
 
 	public Przyklad1() {
-		wczytajPlik("d:\\test\\akademia\\dok.txt");
+		wczytajPlik("E:\\MY Akadamia\\projekty\\akademia\\dok.txt", Level.OFF);
 	}
 
 	@Override
@@ -18,8 +20,12 @@ public class Przyklad1 extends AWczytajPlik {
 		sb.append(wiersz).append(' ');
 	}
 
-	public List<String> getSlowa() {
+	public List<String> getL() {
 		return Arrays.asList(sb.toString().split("\\PL+"));
+	}
+
+	public Stream<String> getS() {
+		return this.getL().stream();
 	}
 
 	/**
@@ -27,7 +33,7 @@ public class Przyklad1 extends AWczytajPlik {
 	 */
 	public void iterator() {
 		int licznik = 0;
-		for (String slowo : getSlowa()) {
+		for (String slowo : getL()) {
 			if (slowo.length() > 10) {
 				licznik++;
 			}
@@ -47,7 +53,7 @@ public class Przyklad1 extends AWczytajPlik {
 	 * Korzystanie z strumienia
 	 */
 	public void strumien() {
-		long licznik = getSlowa().stream().filter(slowo -> slowo.length() > 10).count();
+		long licznik = getL().stream().filter(slowo -> slowo.length() > 10).count();
 		System.out.println(licznik);
 	}
 
