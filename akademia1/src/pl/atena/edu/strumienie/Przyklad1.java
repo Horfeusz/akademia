@@ -12,8 +12,9 @@ public class Przyklad1 extends AWczytajPlik {
 	private StringBuffer sb = new StringBuffer();
 
 	public Przyklad1() {
-		wczytajPlik("E:\\MY Akadamia\\projekty\\akademia\\dok.txt", Level.OFF);
+		wczytajPlik("d:\\test\\akademia\\dok.txt", Level.OFF);
 	}
+	
 
 	@Override
 	protected void przetwarzajLinie(String wiersz) {

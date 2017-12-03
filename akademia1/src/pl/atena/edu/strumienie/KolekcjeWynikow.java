@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class KolekcjeWynikow {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Przyklad1 p = new Przyklad1();
 

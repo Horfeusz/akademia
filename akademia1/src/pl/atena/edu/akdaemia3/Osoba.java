@@ -2,11 +2,24 @@ package pl.atena.edu.akdaemia3;
 
 public class Osoba {
 
+	private Integer id;
+
 	private String imie;
 
 	private String nazwisko;
 
 	private int wiek;
+
+	public Osoba() {
+
+	}
+
+	public Osoba(Integer id, String imie, String nazwisko) {
+		super();
+		this.id = id;
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+	}
 
 	public class Buty {
 		private String marka;
@@ -44,9 +57,17 @@ public class Osoba {
 		this.wiek = wiek;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Osoba [imie=%s, nazwisko=%s, wiek=%s]", imie, nazwisko, wiek);
+		return String.format("Osoba [id=%s, imie=%s, nazwisko=%s, wiek=%s]", id, imie, nazwisko, wiek);
 	}
 
 }

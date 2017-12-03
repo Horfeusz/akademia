@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 public class Przyklad2 {
 
+	
 	/**
 	 * Metoda wyświetlająca elementy strumienia
 	 */

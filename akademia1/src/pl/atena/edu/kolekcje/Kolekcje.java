@@ -35,6 +35,7 @@ public class Kolekcje {
 
 	}
 
+	@SuppressWarnings("unused")
 	private static void listaFilter() {
 
 		List<String> list = new ArrayList<>();
@@ -73,7 +74,7 @@ public class Kolekcje {
 
 		String[] test = { "Edek", "Kredek" };
 		List<String> lista = Arrays.asList(test);
-		//lista.add("Tadek");
+		// lista.add("Tadek");
 
 		Collections.singletonList("test");
 

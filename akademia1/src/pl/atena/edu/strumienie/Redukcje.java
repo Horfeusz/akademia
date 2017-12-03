@@ -12,6 +12,7 @@ public class Redukcje {
 	public static void wyswietl(Stream<?> stream) {
 		stream.limit(1000).forEach(System.out::println);
 		System.out.println();
+
 	}
 
 	public static void main(String[] args) {
